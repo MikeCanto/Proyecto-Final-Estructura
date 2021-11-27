@@ -11,7 +11,7 @@ public class main {
         do{
             System.out.println(" ");
             System.out.println("|------------------------------------------|");
-            System.out.println("|//////////////////////////////////////////|");
+            System.out.println("|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|");
             System.out.println("|------------------------------------------|");
             System.out.println("|               MENU PRINCIPAL:            |");
             System.out.println("|------------------------------------------|");
@@ -21,13 +21,14 @@ public class main {
             System.out.println("|------------------------------------------|");
             System.out.println("| 4.- Lista                                |");
             System.out.println("| 5.- Lista Circular                       |");
+            System.out.println("| 6.- Metodos de ordenamiento              |");
             System.out.println("|------------------------------------------|");
-            System.out.println("| 6.- Arbol                                |");
-            System.out.println("| 7.- Grafo                                |");
+            System.out.println("| 7.- Arbol                                |");
+            System.out.println("| 8.- Grafo                                |");
             System.out.println("|------------------------------------------|");
-            System.out.println("| 8.- Salir                                |");
+            System.out.println("| 9.- Salir                                |");
             System.out.println("|------------------------------------------|");
-            System.out.println("|//////////////////////////////////////////|");
+            System.out.println("|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|");
             System.out.println("|------------------------------------------|");
             System.out.print("Escoja una opcion: ");
             opcion = teclado.nextInt();
@@ -36,6 +37,7 @@ public class main {
                     System.out.println("//////////////////////////////////////////");
                     System.out.println("               ARREGLOS                   ");
                     System.out.println("//////////////////////////////////////////");
+                    System.out.println("\nEstos arreglos estan pensados para un profesor y la administracion de grupo(s)");
                     int opcionMenu = 0;
                     do {
                         System.out.println(" ");
@@ -335,11 +337,186 @@ public class main {
                     System.out.println("//////////////////////////////////////////");
                     System.out.println("             LISTA CIRCULAR               ");
                     System.out.println("//////////////////////////////////////////");
-
-
+                    ListaCircular LC = new ListaCircular();
+                    do {
+                        System.out.println(" ");
+                        System.out.println("|--------------------------------------------------|");
+                        System.out.println("|               MENU LISTA CIRCULAR:               |");
+                        System.out.println("|-------------------------|------------------------|");
+                        System.out.println("| 1.- Insertar            | 4.- Eliminar           |");
+                        System.out.println("| 2.- Buscar              | 5.- Desplegar          |");
+                        System.out.println("| 3.- Modificar           | 6.- Menu principal     |");
+                        System.out.println("|-------------------------|------------------------|");
+                        System.out.print("Escoja una opcion: ");
+                        opcionMenu = teclado.nextInt();
+                        switch (opcionMenu){
+                            case 1:
+                                System.out.println("INSERTAR NODO: ");
+                                LC.insertarNodo();
+                                break;
+                            case 2:
+                                System.out.println("BUSCAR NODO: ");
+                                LC.buscarNodo();
+                                break;
+                            case 3:
+                                System.out.println("MODIFICAR NODO: ");
+                                LC.modificarNodo();
+                                break;
+                            case 4:
+                                System.out.println("ELIMINAR NODO");
+                                LC.eliminarNodo();
+                                break;
+                            case 5:
+                                System.out.println("DESPLEGAR LISTA CIRCULAR:");
+                                LC.desplegarLista();
+                                break;
+                            case 6:
+                                System.out.println("SALIR...");
+                                break;
+                            default:
+                                System.out.println("OPCION NO VALIDA");
+                                break;
+                        }
+                    }while (opcionMenu != 6);
 
                     break;
                 case 6:
+                    System.out.println("//////////////////////////////////////////");
+                    System.out.println("         METODOS DE ORDENAMIENTO          ");
+                    System.out.println("//////////////////////////////////////////");
+                    AlgoritmosDeOrdenamiento ordenar = new AlgoritmosDeOrdenamiento();
+                    do {
+                        System.out.println(" ");
+                        System.out.println("|--------------------------------------------------|");
+                        System.out.println("|            MENU: ORDENAMIENTO - BUSQUEDA:        |");
+                        System.out.println("|--------------------------------------------------|");
+                        System.out.println("| 1.- Ordenamientopo por burbuja                   |");
+                        System.out.println("| 2.- Ordenamiento por QuickSort                   |");
+                        System.out.println("| 3.- Ordenamiento por Insercion                   |");
+                        System.out.println("| 4.- Ordenamiento por Shell                       |");
+                        System.out.println("|--------------------------------------------------|");
+                        System.out.println("| 5.- Busqueda Secuencial                          |");
+                        System.out.println("| 6.- Busqueda Binaria                             |");
+                        System.out.println("|--------------------------------------------------|");
+                        System.out.println("| 7.- Regresar menu                                |");
+                        System.out.println("|--------------------------------------------------|");
+                        System.out.print("Escoja una opcion: ");
+                        opcionMenu = teclado.nextInt();
+                        switch (opcionMenu){
+                            case 1:
+                                System.out.println("Ordenamiento por burbuja: ");
+                                System.out.print("Ingresa el tamaño del arreglo: ");
+                                int tam1 = teclado.nextInt();
+                                int vector1[] = new int [tam1];
+                                for (int i = 0; i < tam1; i++){
+                                    System.out.print("Dato indice " + (i+1) + ": ");
+                                    vector1[i] = teclado.nextInt();
+                                }
+                                System.out.println("Arreglo original: ");
+                                ordenar.mostrarArreglo(vector1);
+                                ordenar.burbuja(vector1);
+                                System.out.println("Arrego ordenado: ");
+                                ordenar.mostrarArreglo(vector1);
+
+                                break;
+                            case 2:
+                                System.out.println("Ordenamiento por QuickSort: ");
+                                System.out.print("Ingresa el tamaño del arreglo: ");
+                                int tam2 = teclado.nextInt();
+                                int vector2[] = new int [tam2];
+                                for (int i = 0; i < tam2; i++){
+                                    System.out.print("Dato indice " + (i+1) + ": ");
+                                    vector2[i] = teclado.nextInt();
+                                }
+                                System.out.println("Arreglo original: ");
+                                ordenar.mostrarArreglo(vector2);
+                                System.out.println("Arreglo ordenado por QuickSort");
+                                ordenar.quick(vector2, 0, vector2.length-1);
+
+                                break;
+                            case 3:
+                                System.out.println("Ordenamiento por Insercion: ");
+                                System.out.print("Ingresa el tamaño del arreglo: ");
+                                int tam3 = teclado.nextInt();
+                                int vector3[] = new int [tam3];
+
+                                for (int i = 0; i < tam3; i++){
+                                    System.out.print("Ingresa el elemento del indice " + (i+1) + ": ");
+                                    vector3[i] = teclado.nextInt();
+                                    ordenar.insercion(vector3, i+1);
+                                }
+
+                                break;
+                            case 4:
+                                System.out.println("Ordenamiento por Shell");
+                                System.out.print("Ingresa el tamaño del arreglo: ");
+                                int tam4 = teclado.nextInt();
+                                int vector4[] = new int [tam4];
+                                for (int i = 0; i < tam4; i++){
+                                    System.out.print("Dato indice " + (i+1) + ": ");
+                                    vector4[i] = teclado.nextInt();
+                                }
+                                System.out.println("Arreglo original");
+                                ordenar.mostrarArreglo(vector4);
+                                ordenar.shell(vector4);
+
+                                break;
+                            case 5:
+                                System.out.println("Busqueda Secuencial:");
+                                System.out.print("Ingresa el tamaño del arreglo: ");
+                                int tam5 = teclado.nextInt();
+                                int vector5[] = new int [tam5];
+                                for (int i = 0; i < tam5; i++){
+                                    System.out.print("Dato indice " + (i+1) + ": ");
+                                    vector5[i] = teclado.nextInt();
+                                }
+                                System.out.print("\nDato a encontrar: ");
+                                int encontrar = teclado.nextInt();
+                                ordenar.mostrarArreglo(vector5);
+                                int indice = ordenar.busquedaSecuencial(vector5, encontrar);
+                                if (indice != -1){
+                                    System.out.println("Elemento encontrado en la posicion: " + (indice+1));
+                                }
+                                else {
+                                    System.out.println("Elemento no encontrado");
+                                }
+
+                                break;
+                            case 6:
+                                System.out.println("Busqueda Binaria:");
+                                System.out.print("Ingresa el tamaño del arreglo: ");
+                                int tam6 = teclado.nextInt();
+                                int vector6[] = new int [tam6];
+                                for (int i = 0; i < tam6; i++){
+                                    System.out.print("Dato indice " + (i+1) + ": ");
+                                    vector6[i] = teclado.nextInt();
+                                }
+                                ordenar.mostrarArreglo(vector6);
+                                ordenar.shell(vector6);
+                                ordenar.mostrarArreglo(vector6);
+                                System.out.print("\nDato a encontrar: ");
+                                int encontrarB = teclado.nextInt();
+                                int indiceA = ordenar.busquedaBinaria(vector6, encontrarB);
+                                if (indiceA != -1){
+                                    System.out.println("Elemento encontrado en la posicion: " + (indiceA+1));
+                                }
+                                else {
+                                    System.out.println("Elemento no encontrado");
+                                }
+
+                                break;
+                            case 7:
+                                System.out.println("SALIR...");
+                                break;
+                            default:
+                                System.out.println("OPCION NO VALIDA");
+                                break;
+                        }
+                    }while (opcionMenu != 7);
+
+
+                    break;
+                case 7:
                     System.out.println("//////////////////////////////////////////");
                     System.out.println("                 ARBOL                    ");
                     System.out.println("//////////////////////////////////////////");
@@ -423,7 +600,7 @@ public class main {
                     } while (opcion != 7);
 
                     break;
-                case 7:
+                case 8:
                     System.out.println("//////////////////////////////////////////");
                     System.out.println("                 GRAFO                    ");
                     System.out.println("//////////////////////////////////////////");
@@ -462,13 +639,13 @@ public class main {
 
                     } while (opcionB != 2);
                     break;
-                case 8:
+                case 9:
                     System.out.println("\nSALIENDO................................");
                     break;
                 default:
                     System.out.println("!!!!!!!!!!!OPCION NO VALIDA!!!!!!!!!!!!!!!");
                     break;
             }
-        } while (opcion != 8);
+        } while (opcion != 9);
     }
 }
