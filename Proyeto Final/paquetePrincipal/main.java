@@ -286,11 +286,58 @@ public class main {
                     System.out.println("//////////////////////////////////////////");
                     System.out.println("                 LISTA                    ");
                     System.out.println("//////////////////////////////////////////");
+                    Lista l = new Lista();
+                    do {
+                        System.out.println(" ");
+                        System.out.println("|--------------------------------------------------|");
+                        System.out.println("|                     MENU LISTA:                  |");
+                        System.out.println("|-------------------------|------------------------|");
+                        System.out.println("| 1.- Insertar            | 4.- Eliminar           |");
+                        System.out.println("| 2.- Buscar              | 5.- Desplegar          |");
+                        System.out.println("| 3.- Modificar           | 6.- Regresar Menu      |");
+                        System.out.println("|-------------------------|------------------------|");
+                        System.out.println(" ");
+                        System.out.print("Escoja una opcion: ");
+                        opcionMenu = teclado.nextInt();
+                        switch (opcionMenu){
+                            case 1:
+                                System.out.println("INSERTAR NODO: ");
+                                l.ingresarNodo();
+                                break;
+                            case 2:
+                                System.out.println("BUSCAR NODO: ");
+                                l.buscarNodo();
+                                break;
+                            case 3:
+                                System.out.println("MODIFICAR NODO: ");
+                                l.modificarNodo();
+                                break;
+                            case 4:
+                                System.out.println("ELIMINAR NODO");
+                                l.eliminarNodo();
+                                break;
+                            case 5:
+                                System.out.println("DESPLEGAR LISTA");
+                                l.desplegarLista();
+                                break;
+                            case 6:
+                                System.out.println("SALIR...");
+                                break;
+                            default:
+                                System.out.println("OPCION NO VALIDA");
+                                break;
+                        }
+                    }while (opcionMenu != 6);
+
+
                     break;
                 case 5:
                     System.out.println("//////////////////////////////////////////");
                     System.out.println("             LISTA CIRCULAR               ");
                     System.out.println("//////////////////////////////////////////");
+
+
+
                     break;
                 case 6:
                     System.out.println("//////////////////////////////////////////");
